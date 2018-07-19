@@ -12,10 +12,10 @@ import javax.swing.table.DefaultTableModel;
 public interface Administrator {
 
 	String addDoctor(DoctorBean doctorBean);
-	Boolean modifyDcotor(DoctorBean doctorBean);
+	String modifyDcotor(DoctorBean doctorBean);
 	ArrayList<DoctorBean> viewAllDoctors();
 	int removeDoctor(String doctorID);
-	ArrayList<DoctorBean> suggestDoctors(String patientID, Date date);
+	ArrayList<DoctorBean> suggestDoctors();
 	Map<PatientBean, AppointmentBean> viewPatientsByDate(Date appointmetnDate);
 	
 	

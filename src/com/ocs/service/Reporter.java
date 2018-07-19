@@ -1,12 +1,21 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.ocs.service;
-import java.sql.Date;
-import java.util.ArrayList;
 
-import com.ocs.bean.DoctorBean;
+import com.ocs.bean.LeaveBean;
+import com.ocs.dao.OcsDAO;
 
-public interface Reporter {
-
-	ArrayList<DoctorBean> viewAllAvailableDoctors(Date date);
-	ArrayList<DoctorBean> intimateAdmin(Date date, String status);
-	
+/**
+ *
+ * @author root
+ */
+public class Reporter {
+    public boolean intimateAdmin(LeaveBean leaveBean)
+    {
+        OcsDAO od = new OcsDAO();
+        return od.reportAdmin(leaveBean);
+    }
 }

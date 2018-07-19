@@ -7,7 +7,9 @@ package com.ocs.service;
 
 import com.ocs.bean.AppointmentBean;
 import com.ocs.bean.DoctorBean;
+import com.ocs.bean.LeaveBean;
 import com.ocs.bean.PatientBean;
+import com.ocs.bean.ProfileBean;
 import com.ocs.dao.OcsDAO;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -20,6 +22,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class AdminClass implements Administrator {
 
+    public LeaveBean report(String doctorID)
+    {
+        OcsDAO od = new OcsDAO();
+        return od.docReport(doctorID);
+    }
     public boolean modifyPassword(String id, String password, String newP)
     {
         OcsDAO od = new OcsDAO();
@@ -35,11 +42,11 @@ public class AdminClass implements Administrator {
     }
 
     @Override
-    public Boolean modifyDcotor(DoctorBean doctorBean) {
+    public String modifyDcotor(DoctorBean doctorBean) {
         String res;
         OcsDAO od = new OcsDAO();
         res = od.update(doctorBean);
-        return res.equalsIgnoreCase("Success");
+        return res;
     }
 
     public DefaultTableModel viewDoctors()
@@ -67,10 +74,21 @@ public class AdminClass implements Administrator {
     }
 
     @Override
-    public ArrayList<DoctorBean> suggestDoctors(String patientID, Date date) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList<DoctorBean> suggestDoctors() {
+        OcsDAO od = new OcsDAO();
+        return od.findAllDoctor();
     }
 
+    public ArrayList<ProfileBean> suggestPatient() {
+        OcsDAO od = new OcsDAO();
+        return od.findAllPatient();
+    }
+    
+    public PatientBean findPatient(String pid) {
+        OcsDAO od = new OcsDAO();
+        return od.findByID(pid);
+    }
+    
     @Override
     public Map<PatientBean, AppointmentBean> viewPatientsByDate(Date appointmetnDate) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

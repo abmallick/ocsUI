@@ -11,7 +11,7 @@ public interface Patient {
 	boolean modifyAilmentDetails(String patientID);
 	ArrayList<PatientBean> viewAilmentDetails(String patientID);
 	ArrayList<DoctorBean> viewListOfDoctors(String type, Date date);
-	String requestForAppointment(String doctorID, Date appointmentDate);
-	Map<AppointmentBean, PatientBean> viewAppointmentDetails(String patientID, Date date);
+	String requestForAppointment(AppointmentBean appointmentBean);
+	AppointmentBean viewAppointmentDetails(String patientID);
 	
 }
