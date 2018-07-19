@@ -11,7 +11,7 @@ public class DoctorBean {
 	String gender;
 	String qualification;
 	String specialization;
-	String yearsOfExperience;
+	int yearsOfExperience;
 	String street;
 	String location;
 	String city;
@@ -61,10 +61,10 @@ public class DoctorBean {
 	public void setSpecialization(String specialization) {
 		this.specialization = specialization;
 	}
-	public String getYearsOfExperience() {
+	public int getYearsOfExperience() {
 		return yearsOfExperience;
 	}
-	public void setYearsOfExperience(String yearsOfExperience) {
+	public void setYearsOfExperience(int yearsOfExperience) {
 		this.yearsOfExperience = yearsOfExperience;
 	}
 	public String getStreet() {

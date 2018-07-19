@@ -5,8 +5,15 @@
  */
 package com.ocs.ui;
 
+import com.ocs.bean.CredentialsBean;
+import com.ocs.bean.DoctorBean;
+import com.ocs.bean.ProfileBean;
+import com.ocs.dao.OcsDAO;
+import com.ocs.util.UserAuthentication;
+import com.ocs.util.UserOptions;
 import java.awt.CardLayout;
-
+import java.sql.Date;
+import com.ocs.service.*;
 /**
  *
  * @author root
@@ -44,43 +51,43 @@ public class OCSUI extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        t1 = new javax.swing.JTextField();
+        t2 = new javax.swing.JTextField();
+        t3 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        gender = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        t7 = new javax.swing.JTextField();
+        t8 = new javax.swing.JTextField();
+        t9 = new javax.swing.JTextField();
+        t10 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        t11 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        t12 = new javax.swing.JTextField();
+        t13 = new javax.swing.JTextField();
+        t14 = new javax.swing.JPasswordField();
         jLabel20 = new javax.swing.JLabel();
         jToggleButton4 = new javax.swing.JToggleButton();
-        jTextField33 = new javax.swing.JTextField();
-        jTextField34 = new javax.swing.JTextField();
-        jTextField35 = new javax.swing.JTextField();
+        t4 = new javax.swing.JTextField();
+        t5 = new javax.swing.JTextField();
+        t6 = new javax.swing.JTextField();
         jToggleButton28 = new javax.swing.JToggleButton();
         loginPanel = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
         jLabel22 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        userID = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        password = new javax.swing.JPasswordField();
         jToggleButton5 = new javax.swing.JToggleButton();
+        jLabel21 = new javax.swing.JLabel();
+        loginType = new javax.swing.JComboBox<>();
         adminPanel = new javax.swing.JPanel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton6 = new javax.swing.JToggleButton();
@@ -98,13 +105,15 @@ public class OCSUI extends javax.swing.JFrame {
         jToggleButton18 = new javax.swing.JToggleButton();
         jToggleButton19 = new javax.swing.JToggleButton();
         jToggleButton20 = new javax.swing.JToggleButton();
-        passwordPanel = new javax.swing.JPanel();
+        passwordPanelAdmin = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
+        p1 = new javax.swing.JTextField();
+        jToggleButton32 = new javax.swing.JToggleButton();
+        jToggleButton33 = new javax.swing.JToggleButton();
+        p2 = new javax.swing.JPasswordField();
+        p3 = new javax.swing.JPasswordField();
         addDoctor = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
@@ -121,31 +130,42 @@ public class OCSUI extends javax.swing.JFrame {
         jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
-        jTextField18 = new javax.swing.JTextField();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jTextField19 = new javax.swing.JTextField();
-        jTextField20 = new javax.swing.JTextField();
-        jSpinner4 = new javax.swing.JSpinner();
-        jTextField21 = new javax.swing.JTextField();
-        jTextField22 = new javax.swing.JTextField();
-        jTextField23 = new javax.swing.JTextField();
-        jTextField24 = new javax.swing.JTextField();
-        jTextField25 = new javax.swing.JTextField();
-        jTextField26 = new javax.swing.JTextField();
-        jTextField27 = new javax.swing.JTextField();
+        d1 = new javax.swing.JTextField();
+        d2 = new javax.swing.JTextField();
+        maleRadio = new javax.swing.JRadioButton();
+        femaleRadio = new javax.swing.JRadioButton();
+        d5 = new javax.swing.JTextField();
+        d6 = new javax.swing.JTextField();
+        d8 = new javax.swing.JTextField();
+        d9 = new javax.swing.JTextField();
+        d10 = new javax.swing.JTextField();
+        d11 = new javax.swing.JTextField();
+        d12 = new javax.swing.JTextField();
+        d13 = new javax.swing.JTextField();
+        d14 = new javax.swing.JTextField();
         jToggleButton7 = new javax.swing.JToggleButton();
+        d7 = new javax.swing.JTextField();
+        jToggleButton31 = new javax.swing.JToggleButton();
+        b1 = new javax.swing.JTextField();
+        b2 = new javax.swing.JTextField();
+        b3 = new javax.swing.JTextField();
+        jLabel67 = new javax.swing.JLabel();
+        jLabel68 = new javax.swing.JLabel();
+        jLabel69 = new javax.swing.JLabel();
+        b4 = new javax.swing.JTextField();
+        b5 = new javax.swing.JTextField();
+        b6 = new javax.swing.JTextField();
+        jLabel70 = new javax.swing.JLabel();
+        jLabel71 = new javax.swing.JLabel();
+        jLabel72 = new javax.swing.JLabel();
         viewDoctor = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        studentTable = new javax.swing.JTable();
+        doctorTable = new javax.swing.JTable();
         jToggleButton21 = new javax.swing.JToggleButton();
         deleteDoctor = new javax.swing.JPanel();
         jLabel42 = new javax.swing.JLabel();
-        jTextField28 = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        id1 = new javax.swing.JTextField();
+        chk = new javax.swing.JCheckBox();
         jToggleButton22 = new javax.swing.JToggleButton();
         jLabel43 = new javax.swing.JLabel();
         jToggleButton26 = new javax.swing.JToggleButton();
@@ -206,6 +226,15 @@ public class OCSUI extends javax.swing.JFrame {
         jTextArea4 = new javax.swing.JTextArea();
         jToggleButton29 = new javax.swing.JToggleButton();
         jToggleButton30 = new javax.swing.JToggleButton();
+        passwordPanelPatient = new javax.swing.JPanel();
+        pp1 = new javax.swing.JTextField();
+        jToggleButton34 = new javax.swing.JToggleButton();
+        jLabel64 = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
+        jLabel66 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        pp2 = new javax.swing.JPasswordField();
+        pp3 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -269,9 +298,9 @@ public class OCSUI extends javax.swing.JFrame {
 
         jLabel8.setText("Street:");
 
-        jTextField2.setText("First");
+        t2.setText("First");
 
-        jTextField3.setText("Last");
+        t3.setText("Last");
 
         jLabel9.setText("DD");
 
@@ -279,7 +308,7 @@ public class OCSUI extends javax.swing.JFrame {
 
         jLabel11.setText("YYYY");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Transgender", "Prefer not to tell" }));
+        gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
 
         jLabel12.setText("State:");
 
@@ -302,6 +331,11 @@ public class OCSUI extends javax.swing.JFrame {
         jLabel20.setText("*By clicking Submit, you are agreeing to all terms and conditions of the online clinic system");
 
         jToggleButton4.setText("SUBMIT");
+        jToggleButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton4ActionPerformed(evt);
+            }
+        });
 
         jToggleButton28.setText("Back");
 
@@ -334,38 +368,38 @@ public class OCSUI extends javax.swing.JFrame {
                                     .addGroup(signupPanelLayout.createSequentialGroup()
                                         .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(signupPanelLayout.createSequentialGroup()
-                                                .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(t4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jLabel9)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(t5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jLabel10))
-                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(t2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(signupPanelLayout.createSequentialGroup()
-                                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(t3, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(0, 0, Short.MAX_VALUE))
                                             .addGroup(signupPanelLayout.createSequentialGroup()
-                                                .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(t6, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(jLabel11)
                                                 .addGap(92, 92, 92))))
                                     .addGroup(signupPanelLayout.createSequentialGroup()
                                         .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(t12, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(t11, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(t10, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(t9, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(t7, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(t8, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jTextField10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE))
+                                                .addComponent(t14, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(t13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE))
                                             .addGroup(signupPanelLayout.createSequentialGroup()
-                                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(t1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(3, 3, 3)
                                                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGap(0, 0, Short.MAX_VALUE)))))
@@ -387,7 +421,7 @@ public class OCSUI extends javax.swing.JFrame {
                     .addGroup(signupPanelLayout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(t1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel15)))
                     .addGroup(signupPanelLayout.createSequentialGroup()
                         .addContainerGap()
@@ -395,9 +429,8 @@ public class OCSUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(t2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(t3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
@@ -405,12 +438,12 @@ public class OCSUI extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addComponent(jLabel10)
                         .addComponent(jLabel11)
-                        .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(t4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(t5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(t6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -420,32 +453,32 @@ public class OCSUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(signupPanelLayout.createSequentialGroup()
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(t7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(t8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(t9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(t10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(t11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(t12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(t13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(t14, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -456,15 +489,20 @@ public class OCSUI extends javax.swing.JFrame {
 
         mainPanel.add(signupPanel, "signupCard");
 
-        jLabel21.setText("Login As:");
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Patient", "Reporter", "Admin" }));
-
         jLabel22.setText("User ID:");
 
         jLabel23.setText("Password:");
 
         jToggleButton5.setText("Login");
+        jToggleButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton5ActionPerformed(evt);
+            }
+        });
+
+        jLabel21.setText("Login As:");
+
+        loginType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Patient", "Reporter", "Admin" }));
 
         javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
         loginPanel.setLayout(loginPanelLayout);
@@ -473,48 +511,64 @@ public class OCSUI extends javax.swing.JFrame {
             .addGroup(loginPanelLayout.createSequentialGroup()
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(loginPanelLayout.createSequentialGroup()
-                        .addGap(127, 127, 127)
+                        .addGap(133, 133, 133)
                         .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel21)
                             .addComponent(jLabel22)
-                            .addComponent(jLabel23))
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel21))
                         .addGap(31, 31, 31)
                         .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(loginType, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(userID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))))
                     .addGroup(loginPanelLayout.createSequentialGroup()
                         .addGap(231, 231, 231)
                         .addComponent(jToggleButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(480, Short.MAX_VALUE))
+                .addContainerGap(482, Short.MAX_VALUE))
         );
         loginPanelLayout.setVerticalGroup(
             loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginPanelLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(35, 35, 35)
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(loginType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21))
                 .addGap(18, 18, 18)
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(userID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addComponent(jToggleButton5)
-                .addContainerGap(295, Short.MAX_VALUE))
+                .addContainerGap(299, Short.MAX_VALUE))
         );
 
         mainPanel.add(loginPanel, "loginCard");
 
         jToggleButton1.setText("Change Password");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         jToggleButton6.setText("Add/Modify Doctor");
+        jToggleButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton6ActionPerformed(evt);
+            }
+        });
 
         jToggleButton8.setText("Delete Doctor");
+        jToggleButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton8ActionPerformed(evt);
+            }
+        });
 
         jToggleButton9.setText("View Doctor");
         jToggleButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -524,53 +578,71 @@ public class OCSUI extends javax.swing.JFrame {
         });
 
         jToggleButton10.setText("Suggest Doctor");
+        jToggleButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton10ActionPerformed(evt);
+            }
+        });
 
         jToggleButton11.setText("Logout");
+        jToggleButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton11ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout adminPanelLayout = new javax.swing.GroupLayout(adminPanel);
         adminPanel.setLayout(adminPanelLayout);
         adminPanelLayout.setHorizontalGroup(
             adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(adminPanelLayout.createSequentialGroup()
-                .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(adminPanelLayout.createSequentialGroup()
-                        .addGap(244, 244, 244)
-                        .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jToggleButton6)
-                            .addComponent(jToggleButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(adminPanelLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(jToggleButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
+                .addGap(56, 56, 56)
+                .addComponent(jToggleButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jToggleButton6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jToggleButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(94, 94, 94))
             .addGroup(adminPanelLayout.createSequentialGroup()
-                .addGap(163, 163, 163)
-                .addComponent(jToggleButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(adminPanelLayout.createSequentialGroup()
+                        .addGap(193, 193, 193)
+                        .addComponent(jToggleButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(129, 129, 129)
+                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(adminPanelLayout.createSequentialGroup()
+                        .addGap(329, 329, 329)
+                        .addComponent(jToggleButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(206, Short.MAX_VALUE))
         );
         adminPanelLayout.setVerticalGroup(
             adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(adminPanelLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton9)
-                    .addComponent(jToggleButton6)
-                    .addComponent(jToggleButton8))
-                .addGap(38, 38, 38)
-                .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton10)
-                    .addComponent(jToggleButton1))
-                .addGap(78, 78, 78)
+                .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(adminPanelLayout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(jToggleButton1))
+                    .addGroup(adminPanelLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jToggleButton9)
+                            .addComponent(jToggleButton6)
+                            .addComponent(jToggleButton8))
+                        .addGap(58, 58, 58)
+                        .addComponent(jToggleButton10)))
+                .addGap(52, 52, 52)
                 .addComponent(jToggleButton11)
-                .addContainerGap(266, Short.MAX_VALUE))
+                .addContainerGap(272, Short.MAX_VALUE))
         );
 
         mainPanel.add(adminPanel, "adminCard");
 
         jToggleButton12.setText("Change Password");
+        jToggleButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton12ActionPerformed(evt);
+            }
+        });
 
         jToggleButton13.setText("View/Edit Profile");
 
@@ -579,6 +651,11 @@ public class OCSUI extends javax.swing.JFrame {
         jToggleButton16.setText("Request Appointment");
 
         jToggleButton17.setText("Logout");
+        jToggleButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton17ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout patientPanelLayout = new javax.swing.GroupLayout(patientPanel);
         patientPanel.setLayout(patientPanelLayout);
@@ -660,42 +737,76 @@ public class OCSUI extends javax.swing.JFrame {
 
         jLabel26.setText("New Password:");
 
-        javax.swing.GroupLayout passwordPanelLayout = new javax.swing.GroupLayout(passwordPanel);
-        passwordPanel.setLayout(passwordPanelLayout);
-        passwordPanelLayout.setHorizontalGroup(
-            passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(passwordPanelLayout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addGroup(passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel24)
-                    .addComponent(jLabel25)
-                    .addComponent(jLabel26))
-                .addGap(54, 54, 54)
-                .addGroup(passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(403, Short.MAX_VALUE))
+        jToggleButton32.setText("Change Password");
+        jToggleButton32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton32ActionPerformed(evt);
+            }
+        });
+
+        jToggleButton33.setText("Back");
+        jToggleButton33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton33ActionPerformed(evt);
+            }
+        });
+
+        p3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                p3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout passwordPanelAdminLayout = new javax.swing.GroupLayout(passwordPanelAdmin);
+        passwordPanelAdmin.setLayout(passwordPanelAdminLayout);
+        passwordPanelAdminLayout.setHorizontalGroup(
+            passwordPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(passwordPanelAdminLayout.createSequentialGroup()
+                .addGroup(passwordPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(passwordPanelAdminLayout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addGroup(passwordPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel26))
+                        .addGap(54, 54, 54)
+                        .addGroup(passwordPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(p2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(p3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(p1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(passwordPanelAdminLayout.createSequentialGroup()
+                        .addGap(221, 221, 221)
+                        .addComponent(jToggleButton32)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 309, Short.MAX_VALUE)
+                .addComponent(jToggleButton33)
+                .addContainerGap())
         );
-        passwordPanelLayout.setVerticalGroup(
-            passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(passwordPanelLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel24)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        passwordPanelAdminLayout.setVerticalGroup(
+            passwordPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(passwordPanelAdminLayout.createSequentialGroup()
+                .addGroup(passwordPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(passwordPanelAdminLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(passwordPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel24)
+                            .addComponent(p1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(passwordPanelAdminLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jToggleButton33, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(passwordPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel25)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(p2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(passwordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(passwordPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(339, Short.MAX_VALUE))
+                    .addComponent(p3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jToggleButton32)
+                .addContainerGap(332, Short.MAX_VALUE))
         );
 
-        mainPanel.add(passwordPanel, "passwordCard");
+        mainPanel.add(passwordPanelAdmin, "adminPasswordCard");
 
         jLabel27.setText("Doctor ID:");
 
@@ -727,155 +838,207 @@ public class OCSUI extends javax.swing.JFrame {
 
         jLabel41.setText("Email ID:");
 
-        doctoGroup.add(jRadioButton3);
-        jRadioButton3.setText("Male");
+        doctoGroup.add(maleRadio);
+        maleRadio.setText("Male");
 
-        doctoGroup.add(jRadioButton4);
-        jRadioButton4.setText("Female");
+        doctoGroup.add(femaleRadio);
+        femaleRadio.setText("Female");
 
         jToggleButton7.setText("Back");
+        jToggleButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton7ActionPerformed(evt);
+            }
+        });
+
+        jToggleButton31.setText("Add Doctor");
+        jToggleButton31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton31ActionPerformed(evt);
+            }
+        });
+
+        jLabel67.setText("DD");
+
+        jLabel68.setText("MM");
+
+        jLabel69.setText("YYYY");
+
+        jLabel70.setText("DD");
+
+        jLabel71.setText("MM");
+
+        jLabel72.setText("YYYY");
 
         javax.swing.GroupLayout addDoctorLayout = new javax.swing.GroupLayout(addDoctor);
         addDoctor.setLayout(addDoctorLayout);
         addDoctorLayout.setHorizontalGroup(
             addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addDoctorLayout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGap(80, 80, 80)
+                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(addDoctorLayout.createSequentialGroup()
-                        .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel28)
+                            .addComponent(jLabel31)
+                            .addComponent(jLabel30)
                             .addComponent(jLabel29)
-                            .addComponent(jLabel28))
+                            .addComponent(jLabel27))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField16, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(jTextField17)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addDoctorLayout.createSequentialGroup()
-                        .addComponent(jLabel27)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addDoctorLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
                         .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(addDoctorLayout.createSequentialGroup()
-                                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel30)
-                                    .addComponent(jLabel31)
-                                    .addComponent(jLabel32)
-                                    .addComponent(jLabel33)
-                                    .addComponent(jLabel35)
-                                    .addComponent(jLabel36)
-                                    .addComponent(jLabel37)
-                                    .addComponent(jLabel38)
-                                    .addComponent(jLabel39)
-                                    .addComponent(jLabel40)
-                                    .addComponent(jLabel41))
+                                .addGap(1, 1, 1)
                                 .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(addDoctorLayout.createSequentialGroup()
-                                        .addGap(121, 121, 121)
-                                        .addComponent(jTextField18))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDoctorLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
-                                        .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDoctorLayout.createSequentialGroup()
-                                                .addComponent(jRadioButton3)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jRadioButton4))
-                                            .addComponent(jTextField19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addComponent(maleRadio)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(femaleRadio))
+                                    .addGroup(addDoctorLayout.createSequentialGroup()
+                                        .addComponent(b4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel70)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(39, 39, 39)
+                                        .addComponent(b6, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel72))))
                             .addGroup(addDoctorLayout.createSequentialGroup()
-                                .addComponent(jLabel34)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(d2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(d1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(addDoctorLayout.createSequentialGroup()
+                                        .addComponent(jLabel71)
+                                        .addGap(8, 8, 8))
+                                    .addGroup(addDoctorLayout.createSequentialGroup()
+                                        .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel67)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(5, 5, 5)
+                                        .addComponent(jLabel68)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(b3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel69))))
+                    .addGroup(addDoctorLayout.createSequentialGroup()
+                        .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel32)
+                            .addComponent(jLabel33)
+                            .addComponent(jLabel35)
+                            .addComponent(jLabel36)
+                            .addComponent(jLabel37)
+                            .addComponent(jLabel38)
+                            .addComponent(jLabel39)
+                            .addComponent(jLabel40)
+                            .addComponent(jLabel41)
+                            .addComponent(jLabel34))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                        .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(d5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(d6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(d7, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(d8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(d9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(d10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(d11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(d12, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(d13, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(d14, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(94, 94, 94)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
+                .addComponent(jToggleButton7)
+                .addContainerGap())
+            .addGroup(addDoctorLayout.createSequentialGroup()
+                .addGap(275, 275, 275)
+                .addComponent(jToggleButton31, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDoctorLayout.createSequentialGroup()
-                .addContainerGap(425, Short.MAX_VALUE)
-                .addComponent(jToggleButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(266, 266, 266))
         );
         addDoctorLayout.setVerticalGroup(
             addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addDoctorLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel27)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel28)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
                 .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(d1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel27)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(d2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel28))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel67)
+                    .addComponent(b2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel68)
+                    .addComponent(b3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel69)
                     .addComponent(jLabel29))
+                .addGap(18, 18, 18)
+                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(b4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel70)
+                    .addComponent(b5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel71)
+                    .addComponent(b6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel72)
+                    .addComponent(jLabel30))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(maleRadio)
+                    .addComponent(femaleRadio)
+                    .addComponent(jLabel31))
+                .addGap(8, 8, 8)
+                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(d5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel32))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(d6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel33))
+                .addGap(18, 18, 18)
+                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(d7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel34))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel30)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(addDoctorLayout.createSequentialGroup()
-                        .addComponent(jLabel31)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel32)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel33)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel34)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel35)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel36)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel37)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel38)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel39)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel40))
-                    .addGroup(addDoctorLayout.createSequentialGroup()
-                        .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton3)
-                            .addComponent(jRadioButton4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(d8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel35))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel41)
-                    .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(jToggleButton7)
+                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(d9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(d10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel37))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(d11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel38))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(d12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel39))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(d13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel40))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(d14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel41))
+                .addGap(18, 18, 18)
+                .addComponent(jToggleButton31)
                 .addContainerGap())
         );
 
         mainPanel.add(addDoctor, "addDoctorCard");
 
-        studentTable.setModel(new javax.swing.table.DefaultTableModel(
+        doctorTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
@@ -894,9 +1057,14 @@ public class OCSUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(studentTable);
+        jScrollPane1.setViewportView(doctorTable);
 
         jToggleButton21.setText("Back");
+        jToggleButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton21ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout viewDoctorLayout = new javax.swing.GroupLayout(viewDoctor);
         viewDoctor.setLayout(viewDoctorLayout);
@@ -922,13 +1090,23 @@ public class OCSUI extends javax.swing.JFrame {
 
         jLabel42.setText("Doctor ID:");
 
-        jCheckBox1.setText("Yes, delete this record");
+        chk.setText("Yes, delete this record");
 
         jToggleButton22.setText("Delete");
+        jToggleButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton22ActionPerformed(evt);
+            }
+        });
 
         jLabel43.setText("Are you sure of deleting this record?");
 
         jToggleButton26.setText("Back");
+        jToggleButton26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton26ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout deleteDoctorLayout = new javax.swing.GroupLayout(deleteDoctor);
         deleteDoctor.setLayout(deleteDoctorLayout);
@@ -940,13 +1118,13 @@ public class OCSUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(deleteDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(deleteDoctorLayout.createSequentialGroup()
-                        .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(id1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jToggleButton26))
                     .addGroup(deleteDoctorLayout.createSequentialGroup()
                         .addGroup(deleteDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel43)
-                            .addComponent(jCheckBox1)
+                            .addComponent(chk)
                             .addComponent(jToggleButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 355, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -959,20 +1137,20 @@ public class OCSUI extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addGroup(deleteDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel42)
-                            .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(id1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(deleteDoctorLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jToggleButton26)))
                 .addGap(24, 24, 24)
                 .addComponent(jLabel43)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox1)
+                .addComponent(chk)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jToggleButton22)
                 .addContainerGap(347, Short.MAX_VALUE))
         );
 
-        mainPanel.add(deleteDoctor, "card11");
+        mainPanel.add(deleteDoctor, "deleteDoctorCard");
 
         jLabel44.setText("Select Patient:");
 
@@ -994,6 +1172,11 @@ public class OCSUI extends javax.swing.JFrame {
         jToggleButton24.setText("Suggest");
 
         jToggleButton25.setText("Back");
+        jToggleButton25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton25ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout suggestDoctorLayout = new javax.swing.GroupLayout(suggestDoctor);
         suggestDoctor.setLayout(suggestDoctorLayout);
@@ -1005,12 +1188,13 @@ public class OCSUI extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jToggleButton25))
                     .addGroup(suggestDoctorLayout.createSequentialGroup()
-                        .addGap(280, 280, 280)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(suggestDoctorLayout.createSequentialGroup()
-                        .addGap(326, 326, 326)
-                        .addComponent(jToggleButton23)
+                        .addGroup(suggestDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(suggestDoctorLayout.createSequentialGroup()
+                                .addGap(280, 280, 280)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(suggestDoctorLayout.createSequentialGroup()
+                                .addGap(326, 326, 326)
+                                .addComponent(jToggleButton23)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(suggestDoctorLayout.createSequentialGroup()
@@ -1331,6 +1515,78 @@ public class OCSUI extends javax.swing.JFrame {
 
         mainPanel.add(reportDoctor, "reportDoctorCard");
 
+        jToggleButton34.setText("Change Password");
+        jToggleButton34.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton34ActionPerformed(evt);
+            }
+        });
+
+        jLabel64.setText("Enter ID:");
+
+        jLabel65.setText("Current Password:");
+
+        jLabel66.setText("New Password:");
+
+        jButton1.setText("Back");
+
+        javax.swing.GroupLayout passwordPanelPatientLayout = new javax.swing.GroupLayout(passwordPanelPatient);
+        passwordPanelPatient.setLayout(passwordPanelPatientLayout);
+        passwordPanelPatientLayout.setHorizontalGroup(
+            passwordPanelPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, passwordPanelPatientLayout.createSequentialGroup()
+                .addContainerGap(375, Short.MAX_VALUE)
+                .addGroup(passwordPanelPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(passwordPanelPatientLayout.createSequentialGroup()
+                        .addGap(230, 230, 230)
+                        .addComponent(jButton1))
+                    .addGroup(passwordPanelPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(pp2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pp3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(passwordPanelPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(passwordPanelPatientLayout.createSequentialGroup()
+                    .addGap(188, 188, 188)
+                    .addGroup(passwordPanelPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(passwordPanelPatientLayout.createSequentialGroup()
+                            .addGroup(passwordPanelPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel64)
+                                .addComponent(jLabel65)
+                                .addComponent(jLabel66))
+                            .addGap(54, 54, 54)
+                            .addComponent(pp1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(passwordPanelPatientLayout.createSequentialGroup()
+                            .addGap(93, 93, 93)
+                            .addComponent(jToggleButton34)))
+                    .addContainerGap(189, Short.MAX_VALUE)))
+        );
+        passwordPanelPatientLayout.setVerticalGroup(
+            passwordPanelPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(passwordPanelPatientLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addComponent(pp2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pp3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(125, Short.MAX_VALUE))
+            .addGroup(passwordPanelPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(passwordPanelPatientLayout.createSequentialGroup()
+                    .addGap(66, 66, 66)
+                    .addGroup(passwordPanelPatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel64)
+                        .addComponent(pp1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addComponent(jLabel65)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabel66)
+                    .addGap(18, 18, 18)
+                    .addComponent(jToggleButton34)
+                    .addContainerGap(91, Short.MAX_VALUE)))
+        );
+
+        mainPanel.add(passwordPanelPatient, "patientPasswordCard");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1384,12 +1640,214 @@ public class OCSUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     private void jToggleButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton9ActionPerformed
-        // TODO add your handling code here:
+        AdminClass ac = new AdminClass();
+        doctorTable.setModel(ac.viewDoctors());
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+               card.show(mainPanel, "viewDoctorCard");
     }//GEN-LAST:event_jToggleButton9ActionPerformed
 
     private void jToggleButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton23ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jToggleButton23ActionPerformed
+
+    CredentialsBean cb = new CredentialsBean();
+    private void jToggleButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton5ActionPerformed
+     
+        
+        cb.setUserID(userID.getText());
+        cb.setPassword(String.valueOf(password.getPassword()));
+        cb.setLoginStatus(0);
+        userID.setText("");
+        password.setText("");
+        UserOptions uo = new UserOptions();
+         if(uo.login(cb))
+         {
+             if(loginType.getSelectedIndex() == 2){
+                CardLayout card = (CardLayout)mainPanel.getLayout();
+                card.show(mainPanel, "adminCard");
+             }
+             else if(loginType.getSelectedIndex() == 0)
+             {
+                 CardLayout card = (CardLayout)mainPanel.getLayout();
+                card.show(mainPanel, "patientCard");
+             }
+             else if (loginType.getSelectedIndex() == 1)
+             {
+                 CardLayout card = (CardLayout)mainPanel.getLayout();
+                card.show(mainPanel, "reporterCard");
+             }
+         }
+         else {
+             System.out.println("Unable to login");
+         }
+        
+    }//GEN-LAST:event_jToggleButton5ActionPerformed
+
+    private void jToggleButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton11ActionPerformed
+        UserAuthentication ua = new UserAuthentication();
+        ua.changeLoginStatus(cb, 0);
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+               card.show(mainPanel, "homeCard");
+    }//GEN-LAST:event_jToggleButton11ActionPerformed
+
+    private void jToggleButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton6ActionPerformed
+       
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+               card.show(mainPanel, "addDoctorCard");
+    }//GEN-LAST:event_jToggleButton6ActionPerformed
+
+    private void jToggleButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton8ActionPerformed
+      CardLayout card = (CardLayout)mainPanel.getLayout();
+               card.show(mainPanel, "deleteDoctorCard");
+    }//GEN-LAST:event_jToggleButton8ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+               card.show(mainPanel, "adminPasswordCard");
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void jToggleButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton10ActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+               card.show(mainPanel, "suggestDoctorCard");
+    }//GEN-LAST:event_jToggleButton10ActionPerformed
+
+    private void jToggleButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton7ActionPerformed
+               CardLayout card = (CardLayout)mainPanel.getLayout();
+               card.show(mainPanel, "adminCard");    }//GEN-LAST:event_jToggleButton7ActionPerformed
+
+    private void jToggleButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton21ActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+               card.show(mainPanel, "adminCard");
+    }//GEN-LAST:event_jToggleButton21ActionPerformed
+
+    private void jToggleButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton26ActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+               card.show(mainPanel, "adminCard");
+    }//GEN-LAST:event_jToggleButton26ActionPerformed
+
+    private void jToggleButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton25ActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+               card.show(mainPanel, "adminCard");
+    }//GEN-LAST:event_jToggleButton25ActionPerformed
+
+    private void jToggleButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton33ActionPerformed
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+               card.show(mainPanel, "adminCard");
+    }//GEN-LAST:event_jToggleButton33ActionPerformed
+
+    private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
+        ProfileBean pb = new ProfileBean();
+        CredentialsBean patient = new CredentialsBean();
+        pb.setUserID(t1.getText());
+        patient.setUserID(t1.getText());
+        patient.setUserType("P");
+        patient.setLoginStatus(0);
+        pb.setFirstName(t2.getText());
+        pb.setLastName(t3.getText());
+        pb.setDateOfBirth(new Date(Integer.parseInt(t6.getText()),Integer.parseInt(t5.getText()),Integer.parseInt(t4.getText())));
+        if(gender.getSelectedIndex() == 1)
+        {
+            pb.setGender("Male");
+        }
+        else
+        {
+            pb.setGender("Female");
+        }
+        pb.setStreet(t7.getText());
+        pb.setLocation(t8.getText());
+        pb.setCity(t9.getText());
+        pb.setState(t10.getText());
+        pb.setPincode(t11.getText());
+        pb.setMobileNo(t12.getText());
+        pb.setEmailID(t13.getText());
+        patient.setPassword(String.valueOf(t14.getPassword()));
+        
+        OcsDAO od = new OcsDAO();
+        String res = od.create(pb);
+        String res2 = od.create(patient);
+        System.out.println(res+res2);
+    }//GEN-LAST:event_jToggleButton4ActionPerformed
+
+    private void jToggleButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton17ActionPerformed
+        UserAuthentication ua = new UserAuthentication();
+        ua.changeLoginStatus(cb, 0);
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+                card.show(mainPanel, "homeCard");
+    }//GEN-LAST:event_jToggleButton17ActionPerformed
+
+    private void jToggleButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton31ActionPerformed
+       DoctorBean db = new DoctorBean();
+       db.setDoctorID(d1.getText());
+       db.setDoctorName(d2.getText());
+       db.setDateOfBirth(new Date(Integer.parseInt(b3.getText()), Integer.parseInt(b2.getText()), Integer.parseInt(b1.getText())));
+       db.setDateOfJoining(new Date(Integer.parseInt(b6.getText()), Integer.parseInt(b5.getText()), Integer.parseInt(b4.getText())));
+       String gendr = null;
+       String res;
+       if(maleRadio.isSelected())
+       {
+           gendr = "Male";
+       }
+       else if(femaleRadio.isSelected())
+       {
+           gendr = "Female";
+       }
+       db.setGender(gendr);
+       db.setQualification(d5.getText());
+       db.setSpecialization(d6.getText());
+       db.setYearsOfExperience(Integer.parseInt(d7.getText()));
+       db.setStreet(d8.getText());
+       db.setLocation(d9.getText());
+       db.setCity(d10.getText());
+       db.setState(d11.getText());
+       db.setPincode(d12.getText());
+       db.setContactNumber(d13.getText());
+       db.setEmailID(d14.getText());
+       
+       AdminClass ac = new AdminClass();
+       res = ac.addDoctor(db);
+       System.out.println(res);
+    }//GEN-LAST:event_jToggleButton31ActionPerformed
+
+    private void jToggleButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton22ActionPerformed
+       String id = id1.getText();
+       if(chk.isSelected())
+       {
+           AdminClass ac = new AdminClass();
+           ac.removeDoctor(id);
+       }
+    }//GEN-LAST:event_jToggleButton22ActionPerformed
+
+    private void jToggleButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton32ActionPerformed
+        
+        AdminClass ac = new AdminClass();
+        if(ac.modifyPassword(p1.getText(), String.valueOf(p2.getPassword()), String.valueOf(p3.getPassword())))
+        {
+            p1.setText("");
+            p2.setText("");
+            p3.setText("");
+            System.out.println("Success");
+        }
+    }//GEN-LAST:event_jToggleButton32ActionPerformed
+
+    private void p3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_p3ActionPerformed
+
+    private void jToggleButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton12ActionPerformed
+         CardLayout card = (CardLayout)mainPanel.getLayout();
+                card.show(mainPanel, "patientPasswordCard");
+    }//GEN-LAST:event_jToggleButton12ActionPerformed
+
+    private void jToggleButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton34ActionPerformed
+        AdminClass ac = new AdminClass();
+        if(ac.modifyPassword(pp1.getText(), String.valueOf(pp2.getPassword()), String.valueOf(pp3.getPassword())))
+        {
+            System.out.println("Success");
+            pp1.setText("");
+            pp2.setText("");
+            pp3.setText("");
+        }
+    }//GEN-LAST:event_jToggleButton34ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1429,14 +1887,35 @@ public class OCSUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addDoctor;
     private javax.swing.JPanel adminPanel;
+    private javax.swing.JTextField b1;
+    private javax.swing.JTextField b2;
+    private javax.swing.JTextField b3;
+    private javax.swing.JTextField b4;
+    private javax.swing.JTextField b5;
+    private javax.swing.JTextField b6;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JCheckBox chk;
+    private javax.swing.JTextField d1;
+    private javax.swing.JTextField d10;
+    private javax.swing.JTextField d11;
+    private javax.swing.JTextField d12;
+    private javax.swing.JTextField d13;
+    private javax.swing.JTextField d14;
+    private javax.swing.JTextField d2;
+    private javax.swing.JTextField d5;
+    private javax.swing.JTextField d6;
+    private javax.swing.JTextField d7;
+    private javax.swing.JTextField d8;
+    private javax.swing.JTextField d9;
     private javax.swing.JPanel deleteDoctor;
     private javax.swing.ButtonGroup doctoGroup;
+    private javax.swing.JTable doctorTable;
+    private javax.swing.JRadioButton femaleRadio;
+    private javax.swing.JComboBox<String> gender;
     private javax.swing.JToggleButton homeButton;
     private javax.swing.JPanel homePanel;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JTextField id1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
@@ -1499,68 +1978,41 @@ public class OCSUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JSpinner jSpinner4;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField24;
-    private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField26;
-    private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField28;
     private javax.swing.JTextField jTextField29;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField30;
     private javax.swing.JTextField jTextField31;
     private javax.swing.JTextField jTextField32;
-    private javax.swing.JTextField jTextField33;
-    private javax.swing.JTextField jTextField34;
-    private javax.swing.JTextField jTextField35;
     private javax.swing.JTextField jTextField36;
     private javax.swing.JTextField jTextField37;
     private javax.swing.JTextField jTextField38;
     private javax.swing.JTextField jTextField39;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField40;
     private javax.swing.JTextField jTextField41;
     private javax.swing.JTextField jTextField42;
     private javax.swing.JTextField jTextField43;
     private javax.swing.JTextField jTextField44;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton10;
     private javax.swing.JToggleButton jToggleButton11;
@@ -1585,6 +2037,10 @@ public class OCSUI extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton29;
     private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JToggleButton jToggleButton30;
+    private javax.swing.JToggleButton jToggleButton31;
+    private javax.swing.JToggleButton jToggleButton32;
+    private javax.swing.JToggleButton jToggleButton33;
+    private javax.swing.JToggleButton jToggleButton34;
     private javax.swing.JToggleButton jToggleButton4;
     private javax.swing.JToggleButton jToggleButton5;
     private javax.swing.JToggleButton jToggleButton6;
@@ -1592,16 +2048,40 @@ public class OCSUI extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton8;
     private javax.swing.JToggleButton jToggleButton9;
     private javax.swing.JPanel loginPanel;
+    private javax.swing.JComboBox<String> loginType;
     private javax.swing.JPanel mainPanel;
-    private javax.swing.JPanel passwordPanel;
+    private javax.swing.JRadioButton maleRadio;
+    private javax.swing.JTextField p1;
+    private javax.swing.JPasswordField p2;
+    private javax.swing.JPasswordField p3;
+    private javax.swing.JPasswordField password;
+    private javax.swing.JPanel passwordPanelAdmin;
+    private javax.swing.JPanel passwordPanelPatient;
     private javax.swing.JPanel patientPanel;
     private javax.swing.JPanel patientRequest;
+    private javax.swing.JTextField pp1;
+    private javax.swing.JPasswordField pp2;
+    private javax.swing.JPasswordField pp3;
     private javax.swing.JPanel reportDoctor;
     private javax.swing.JPanel reporterPanel;
     private javax.swing.JPanel signupPanel;
-    private javax.swing.JTable studentTable;
     private javax.swing.JTable studentTable1;
     private javax.swing.JPanel suggestDoctor;
+    private javax.swing.JTextField t1;
+    private javax.swing.JTextField t10;
+    private javax.swing.JTextField t11;
+    private javax.swing.JTextField t12;
+    private javax.swing.JTextField t13;
+    private javax.swing.JPasswordField t14;
+    private javax.swing.JTextField t2;
+    private javax.swing.JTextField t3;
+    private javax.swing.JTextField t4;
+    private javax.swing.JTextField t5;
+    private javax.swing.JTextField t6;
+    private javax.swing.JTextField t7;
+    private javax.swing.JTextField t8;
+    private javax.swing.JTextField t9;
+    private javax.swing.JTextField userID;
     private javax.swing.JPanel viewDoctor;
     private javax.swing.JPanel viewPatient;
     // End of variables declaration//GEN-END:variables

@@ -7,6 +7,7 @@ import java.util.Map;
 import com.ocs.bean.AppointmentBean;
 import com.ocs.bean.DoctorBean;
 import com.ocs.bean.PatientBean;
+import javax.swing.table.DefaultTableModel;
 
 public interface Administrator {
 

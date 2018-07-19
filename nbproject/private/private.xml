@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/ui/OCSUI.java</file>
+            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/bean/CredentialsBean.java</file>
+            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/service/Administrator.java</file>
+            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/bean/PatientBean.java</file>
+            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/bean/ProfileBean.java</file>
+            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/service/Reporter.java</file>
+            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/util/DBUtil.java</file>
+            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/service/Patient.java</file>
+            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/bean/ScheduleBean.java</file>
+            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/bean/LeaveBean.java</file>
+            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/util/Authentication.java</file>
+            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/util/User.java</file>
+            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/bean/DoctorBean.java</file>
+            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/bean/AppointmentBean.java</file>
+        </group>
+    </open-files>
+</project-private>
