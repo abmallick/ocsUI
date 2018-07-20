@@ -188,43 +188,36 @@
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="t3" min="-2" pref="124" max="-2" attributes="0"/>
-                                                      <EmptySpace pref="251" max="32767" attributes="0"/>
-                                                  </Group>
+                                                  <Component id="t3" min="-2" pref="124" max="-2" attributes="0"/>
                                                   <Group type="102" attributes="0">
                                                       <Component id="t6" min="-2" pref="65" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
                                                       <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace pref="266" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="t12" min="-2" pref="176" max="-2" attributes="0"/>
-                                                  <Component id="t11" min="-2" pref="176" max="-2" attributes="0"/>
-                                                  <Component id="t10" min="-2" pref="176" max="-2" attributes="0"/>
-                                                  <Component id="t9" min="-2" pref="176" max="-2" attributes="0"/>
-                                                  <Component id="gender" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="t7" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
-                                                  <Component id="t8" min="-2" pref="176" max="-2" attributes="0"/>
-                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                      <Component id="t14" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="t13" alignment="0" pref="176" max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="t1" min="-2" pref="124" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                                                      <Component id="jLabel15" min="-2" pref="145" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <EmptySpace pref="281" max="32767" attributes="0"/>
+                                          <Component id="t12" min="-2" pref="176" max="-2" attributes="0"/>
+                                          <Component id="t11" min="-2" pref="176" max="-2" attributes="0"/>
+                                          <Component id="t10" min="-2" pref="176" max="-2" attributes="0"/>
+                                          <Component id="t9" min="-2" pref="176" max="-2" attributes="0"/>
+                                          <Component id="gender" min="-2" max="-2" attributes="0"/>
+                                          <Component id="t7" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
+                                          <Component id="t8" min="-2" pref="176" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="t14" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="t13" alignment="0" pref="176" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="t1" min="-2" pref="124" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jToggleButton44" min="-2" pref="157" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="77" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -261,6 +254,7 @@
                                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                       <Component id="t1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                      <Component id="jToggleButton44" alignment="3" min="-2" pref="13" max="-2" attributes="0"/>
                                       <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -439,7 +433,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="*Must be unique"/>
+                <Property name="text" type="java.lang.String" value="*Must be unique, less than 8 characters"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
@@ -513,6 +507,14 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="*All fields are mandatory to be filled!"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JToggleButton" name="jToggleButton44">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Check Availability"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton44ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -1076,9 +1078,14 @@
                                           </Group>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="b3" min="-2" pref="48" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel69" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="b3" min="-2" pref="48" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jLabel69" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jToggleButton45" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
@@ -1136,6 +1143,7 @@
                           <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                               <Component id="d1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jToggleButton45" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1409,6 +1417,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton41ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JToggleButton" name="jToggleButton45">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Check Availability"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton45ActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -2802,21 +2818,16 @@
                                                   </Group>
                                               </Group>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="pt12" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
-                                                  <Component id="pt11" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
-                                                  <Component id="pt10" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
-                                                  <Component id="pt9" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
-                                                  <Component id="gender1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="pt7" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
-                                                  <Component id="pt8" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
-                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                      <Component id="pt14" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="pt13" alignment="0" pref="176" max="32767" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <EmptySpace min="185" max="32767" attributes="0"/>
+                                          <Component id="pt12" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
+                                          <Component id="pt11" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
+                                          <Component id="pt10" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
+                                          <Component id="pt9" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
+                                          <Component id="gender1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="pt7" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
+                                          <Component id="pt8" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="pt14" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="pt13" alignment="0" pref="176" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="pt1" min="-2" pref="124" max="-2" attributes="0"/>

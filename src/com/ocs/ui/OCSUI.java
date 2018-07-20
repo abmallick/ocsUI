@@ -89,6 +89,7 @@ public class OCSUI extends javax.swing.JFrame {
         t6 = new javax.swing.JTextField();
         jToggleButton28 = new javax.swing.JToggleButton();
         jLabel102 = new javax.swing.JLabel();
+        jToggleButton44 = new javax.swing.JToggleButton();
         loginPanel = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         userID = new javax.swing.JTextField();
@@ -168,6 +169,7 @@ public class OCSUI extends javax.swing.JFrame {
         jLabel71 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
         jToggleButton41 = new javax.swing.JToggleButton();
+        jToggleButton45 = new javax.swing.JToggleButton();
         viewDoctor = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         doctorTable = new javax.swing.JTable();
@@ -397,7 +399,7 @@ public class OCSUI extends javax.swing.JFrame {
 
         jLabel15.setFont(new java.awt.Font("Dialog", 3, 10)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel15.setText("*Must be unique");
+        jLabel15.setText("*Must be unique, less than 8 characters");
 
         jLabel16.setText("Pincode:");
 
@@ -428,6 +430,13 @@ public class OCSUI extends javax.swing.JFrame {
         jLabel102.setFont(new java.awt.Font("Dialog", 3, 10)); // NOI18N
         jLabel102.setForeground(new java.awt.Color(255, 0, 0));
         jLabel102.setText("*All fields are mandatory to be filled!");
+
+        jToggleButton44.setText("Check Availability");
+        jToggleButton44.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton44ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout signupPanelLayout = new javax.swing.GroupLayout(signupPanel);
         signupPanel.setLayout(signupPanelLayout);
@@ -468,32 +477,28 @@ public class OCSUI extends javax.swing.JFrame {
                                             .addComponent(t2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(signupPanelLayout.createSequentialGroup()
-                                                .addComponent(t3, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 251, Short.MAX_VALUE))
+                                            .addComponent(t3, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(signupPanelLayout.createSequentialGroup()
                                                 .addComponent(t6, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel11)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 266, Short.MAX_VALUE))))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel11))))
+                                    .addComponent(t12, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(t11, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(t10, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(t9, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(t7, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(t8, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(t14, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(t13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE))
                                     .addGroup(signupPanelLayout.createSequentialGroup()
-                                        .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(t12, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(t11, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(t10, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(t9, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(t7, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(t8, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(t14, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(t13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE))
-                                            .addGroup(signupPanelLayout.createSequentialGroup()
-                                                .addComponent(t1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(3, 3, 3)
-                                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 281, Short.MAX_VALUE)))))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                                        .addComponent(t1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jToggleButton44, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel15)))))
+                        .addGap(0, 77, Short.MAX_VALUE))
                     .addGroup(signupPanelLayout.createSequentialGroup()
                         .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(signupPanelLayout.createSequentialGroup()
@@ -521,6 +526,7 @@ public class OCSUI extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(t1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jToggleButton44, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel15)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1003,6 +1009,13 @@ public class OCSUI extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton45.setText("Check Availability");
+        jToggleButton45.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton45ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout addDoctorLayout = new javax.swing.GroupLayout(addDoctor);
         addDoctor.setLayout(addDoctorLayout);
         addDoctorLayout.setHorizontalGroup(
@@ -1052,9 +1065,12 @@ public class OCSUI extends javax.swing.JFrame {
                                         .addGap(5, 5, 5)
                                         .addComponent(jLabel68)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(b3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel69))))
+                                .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(addDoctorLayout.createSequentialGroup()
+                                        .addComponent(b3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel69))
+                                    .addComponent(jToggleButton45)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDoctorLayout.createSequentialGroup()
                         .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(addDoctorLayout.createSequentialGroup()
@@ -1099,7 +1115,8 @@ public class OCSUI extends javax.swing.JFrame {
                     .addComponent(jToggleButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(d1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel27)))
+                        .addComponent(jLabel27)
+                        .addComponent(jToggleButton45, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(addDoctorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(d2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2113,19 +2130,16 @@ public class OCSUI extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(jLabel101)
                                                 .addGap(74, 74, 74))))
-                                    .addGroup(patientModifyPanelLayout.createSequentialGroup()
-                                        .addGroup(patientModifyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(pt12, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(pt11, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(pt10, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(pt9, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(gender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(pt7, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(pt8, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(patientModifyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(pt14, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(pt13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(pt12, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pt11, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pt10, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pt9, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(gender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pt7, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pt8, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(patientModifyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(pt14, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(pt13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE))
                                     .addGroup(patientModifyPanelLayout.createSequentialGroup()
                                         .addComponent(pt1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(3, 3, 3)
@@ -2389,6 +2403,11 @@ public class OCSUI extends javax.swing.JFrame {
     private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
         ProfileBean pb = new ProfileBean();
         CredentialsBean patient = new CredentialsBean();
+        if(t1.getText().trim().length() > 8)
+        {
+            JOptionPane.showMessageDialog(new JFrame(), "ID must be of smaller than 8 characters", "Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         pb.setUserID(t1.getText());
         patient.setUserID(t1.getText());
         patient.setUserType("P");
@@ -2438,6 +2457,11 @@ public class OCSUI extends javax.swing.JFrame {
 
     private void jToggleButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton31ActionPerformed
        DoctorBean db = new DoctorBean();
+       if(d1.getText().trim().length() > 8)
+        {
+            JOptionPane.showMessageDialog(new JFrame(), "ID must be less than 8 characters!", "Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
        db.setDoctorID(d1.getText());
        db.setDoctorName(d2.getText());
        db.setDateOfBirth(new Date(Integer.parseInt(b3.getText())-1900, Integer.parseInt(b2.getText()), Integer.parseInt(b1.getText())));
@@ -2662,6 +2686,11 @@ public class OCSUI extends javax.swing.JFrame {
 
     private void jToggleButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton41ActionPerformed
         DoctorBean db = new DoctorBean();
+        if(d1.getText().trim().length() > 8)
+        {
+            JOptionPane.showMessageDialog(new JFrame(), "ID must be less than 8 characters", "Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
        db.setDoctorID(d1.getText());
        db.setDoctorName(d2.getText());
        db.setDateOfBirth(new Date(Integer.parseInt(b3.getText())-1900, Integer.parseInt(b2.getText()), Integer.parseInt(b1.getText())));
@@ -2733,6 +2762,11 @@ public class OCSUI extends javax.swing.JFrame {
 
     private void jToggleButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton43ActionPerformed
        ProfileBean pb = new ProfileBean();
+       if(pt1.getText().trim().length() > 8)
+        {
+            JOptionPane.showMessageDialog(new JFrame(), "ID must be less than 8 characters", "Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
        pb.setUserID(pt1.getText());
        pb.setFirstName(pt2.getText());
        pb.setLastName(pt3.getText());
@@ -2768,6 +2802,44 @@ public class OCSUI extends javax.swing.JFrame {
        
        JOptionPane.showMessageDialog(new JFrame(), res, res, JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jToggleButton43ActionPerformed
+
+    private void jToggleButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton44ActionPerformed
+        if(t1.getText().trim().length() > 8 || t1.getText().trim().length() == 0)
+        {
+            JOptionPane.showMessageDialog(new JFrame(), "ID must be less than 8 characters", "Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        AdminClass ac = new AdminClass();
+        if(ac.availID(t1.getText().trim()))
+        {
+            JOptionPane.showMessageDialog(new JFrame(), "This user ID is avialable", "Available!", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        else {
+            JOptionPane.showMessageDialog(new JFrame(), "This ID is already taken", "Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+    }//GEN-LAST:event_jToggleButton44ActionPerformed
+
+    private void jToggleButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton45ActionPerformed
+       if(d1.getText().trim().length() > 8 || d1.getText().trim().length() == 0)
+        {
+            JOptionPane.showMessageDialog(new JFrame(), "ID must be less than 8 characters", "Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        AdminClass ac = new AdminClass();
+        if(ac.availID(d1.getText().trim()))
+        {
+            JOptionPane.showMessageDialog(new JFrame(), "This user ID is avialable", "Available!", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        else {
+            JOptionPane.showMessageDialog(new JFrame(), "This ID is already taken", "Error!", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+    }//GEN-LAST:event_jToggleButton45ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3000,6 +3072,8 @@ public class OCSUI extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton41;
     private javax.swing.JToggleButton jToggleButton42;
     private javax.swing.JToggleButton jToggleButton43;
+    private javax.swing.JToggleButton jToggleButton44;
+    private javax.swing.JToggleButton jToggleButton45;
     private javax.swing.JToggleButton jToggleButton5;
     private javax.swing.JToggleButton jToggleButton6;
     private javax.swing.JToggleButton jToggleButton7;

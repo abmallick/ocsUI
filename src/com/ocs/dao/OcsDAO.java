@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.lang.Exception;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
 import java.util.logging.Level;
@@ -24,7 +25,27 @@ import javax.swing.table.DefaultTableModel;
  * @author root
  */
 public class OcsDAO {
-  
+  public boolean availableID(String userID)
+  {
+      String sql = "SELECT * FROM OCS_TBL_User_Credentials WHERE USERID = ?";
+      boolean avail = true;
+      try(Connection conn = DBConnection.getDBConnection())
+      {
+          PreparedStatement ps = conn.prepareStatement(sql);
+          ps.setString(1, userID);
+          ResultSet rs = ps.executeQuery();
+          if(rs.next())
+          {
+              avail = false;
+          }
+      } catch (Exception ex) {
+          JOptionPane.showMessageDialog(new JFrame(), "Error", "Dialog",
+        JOptionPane.ERROR_MESSAGE);
+          Logger.getLogger(OcsDAO.class.getName()).log(Level.SEVERE, null, ex);
+      } finally {
+          return avail;
+      }
+  }
     public ProfileBean findPatient(String id)
     {
         String sql = "SELECT * FROM OCS_TBL_User_Profile WHERE USERID = ?";

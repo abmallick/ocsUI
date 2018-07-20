@@ -89,6 +89,12 @@ public class AdminClass implements Administrator {
         return od.findByID(pid);
     }
     
+    public boolean availID(String userID)
+    {
+        OcsDAO od = new OcsDAO();
+        return od.availableID(userID);
+    }
+    
     @Override
     public Map<PatientBean, AppointmentBean> viewPatientsByDate(Date appointmetnDate) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

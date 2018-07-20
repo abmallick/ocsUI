@@ -6,15 +6,19 @@
             <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/ui/OCSUI.java</file>
             <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/bean/CredentialsBean.java</file>
             <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/service/Administrator.java</file>
+            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/util/UserAuthentication.java</file>
             <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/bean/PatientBean.java</file>
             <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/bean/ProfileBean.java</file>
             <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/service/Reporter.java</file>
-            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/util/DBUtil.java</file>
+            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/service/PatientClass.java</file>
+            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/service/AdminClass.java</file>
             <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/service/Patient.java</file>
             <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/bean/ScheduleBean.java</file>
             <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/bean/LeaveBean.java</file>
-            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/util/Authentication.java</file>
-            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/util/User.java</file>
+            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/dao/OcsDAO.java</file>
+            <file>file:/home/viper/NetBeansProjects/ocs/src/ocs/Ocs.java</file>
+            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/util/DBConnection.java</file>
+            <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/util/UserOptions.java</file>
             <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/bean/DoctorBean.java</file>
             <file>file:/home/viper/NetBeansProjects/ocs/src/com/ocs/bean/AppointmentBean.java</file>
         </group>
